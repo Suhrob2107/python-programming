@@ -1,0 +1,71 @@
+<<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<H1>Couses</H1>
+    {{courses}}
+
+    <ul>
+        {% for course in courses %}
+        <li>
+            {{course.title}} -  <img style="width:100px" src="/media/{{course.logo}}" alt="">
+        </li>
+        {% endfor %}
+    </ul>
+<br>
+<h1>Prizes</h1>
+
+<ul>
+    {% for prize in prizes %}
+    <li>
+        {{prize.title}} -  <img style="width:100px" src="/media/{{prize.logo}}" alt="">
+    </li>
+    {% endfor %}
+</ul>
+<br>
+<h1>About</h1>
+    {% if information %}
+    {{ information.title }} -
+    {{ information.video_link }}
+    {{ information.description }}
+    {% endif %}}
+
+
+<br>
+<h1>Filial</h1>
+<ul>
+        {% for filial in filials %}
+        <li>
+            {{filial.title}} -- {{filial.address}} -- {{filial.phone}} -- {{filial.instagram}} -- {{filial.whatsapp}} -- {{filial.email}}
+        </li>
+        {% endfor %}
+    </ul>
+
+<br>
+<h1>Vakancies</h1>
+<ul>
+        {% for v in vakancies %}
+        <li>
+            {{v.title}} -- {{v.description}}
+        </li>
+        {% endfor %}
+    </ul>
+
+
+<br>
+<h1>Staffs</h1>
+<ul>
+        {% for s in staffs %}
+        <li>
+            {{s.last_name}} -- {{s.first_name}} -- {{s.description}} -- {{s.position}} -- {{s.filial}} -- {{s.subject}}
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
