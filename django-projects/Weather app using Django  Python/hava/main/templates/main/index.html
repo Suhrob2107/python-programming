@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hava Durumu</title>
+</head>
+<body>
+    <h2>Hava Durumu Uygulaması</h2>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="city" placeholder="Şehir Adı Girin" required>
+        <button type="submit">Sorgula</button>
+    </form>
+
+    {% if data %}
+        {% if data.error %}
+            <p style="color:red;">{{ data.error }}</p>
+        {% else %}
+            <h3>{{ data.city }} için hava durumu:</h3>
+            <p>Ülke Kodu: {{ data.country_code }}</p>
+            <p>Koordinatlar: {{ data.coordinate }}</p>
+            <p>Sıcaklık: {{ data.temp }}</p>
+            <p>Basınç: {{ data.pressure }}</p>
+            <p>Nem: {{ data.humidity }}</p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
